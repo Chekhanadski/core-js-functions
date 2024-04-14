@@ -54,8 +54,16 @@ function getFunctionBody(func) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(/* funcs */) {
-  throw new Error('Not implemented');
+function getArgumentsCount(funcs) {
+  if (!Array.isArray(funcs)) {
+    throw new Error('Argument must be a array');
+  }
+  return funcs.map((func) => {
+    if (typeof func !== 'function') {
+      throw new Error('func must be a function');
+    }
+    return func.length;
+  });
 }
 
 /**
