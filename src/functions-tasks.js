@@ -21,8 +21,6 @@ function getCurrentFunctionName() {
   return getCurrentFunctionName.name;
 }
 
-console.log(getCurrentFunctionName());
-
 /**
  * Returns the body of the function passed as argument.
  *
@@ -34,8 +32,12 @@ console.log(getCurrentFunctionName());
  *   getFunctionBody(hiHello) => "function hiHello() { console.log('hello world'); }"
  *
  */
-function getFunctionBody(/* func */) {
-  throw new Error('Not implemented');
+function getFunctionBody(func) {
+  if (func !== undefined && typeof func === 'function') {
+    const funcStr = func.toString();
+    return funcStr;
+  }
+  return '';
 }
 
 /**
