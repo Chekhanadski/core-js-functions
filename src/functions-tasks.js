@@ -82,8 +82,16 @@ function getArgumentsCount(funcs) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  if (typeof exponent !== 'number') {
+    throw new Error('Exponent must be a number');
+  }
+
+  function power(num) {
+    return num ** exponent;
+  }
+
+  return power;
 }
 
 /**
